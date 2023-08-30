@@ -1,0 +1,693 @@
+@charset "UTF-8";
+/* Guide
+- Header
+- Home
+- Responsive Nav
+- Post
+- PostCreatePost
+*/
+body {
+  background-color: #000000;
+  color: white;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+}
+
+/* Header */
+.header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.header span {
+  position: fixed;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
+}
+.header__logo__name {
+  margin-left: 0.5rem;
+  color: #E5B906;
+}
+.header__nav {
+  width: 100%;
+  margin: 6.5rem 0px;
+}
+.header__nav ul {
+  padding: 0px;
+}
+.header__nav__link {
+  display: block;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.header__nav__link:hover {
+  background-color: #1a1a1a;
+}
+
+/* Home*/
+.home {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+.home__main {
+  border-right: rgb(54, 54, 54) 2px solid;
+  border-left: rgb(54, 54, 54) 2px solid;
+}
+.home__aside {
+  position: sticky;
+  top: 0; /* Adjust the width as needed */
+  height: 100vh; /* Make it fill the entire viewport height */
+  /* .aside__note{                                          O código disto a ser usado está em Notes
+    background-color: lighten($primary-color, 10%);
+    padding: 0.5rem 1rem 1.5rem 1rem;
+    margin-top: 1.5rem;
+    &__header{
+      &__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & img{
+          height: 2.5rem;
+          margin-right: 1rem;
+        }
+        & h3{
+          color: $tertiary-color;
+        }
+      }
+
+    }
+    &__main{
+      text-align: center;
+
+      &__text{
+        margin: 0px;
+      }
+    }
+  } */
+}
+.home__aside .aside__tittle {
+  text-align: center;
+  color: #E5B906;
+}
+.home__aside .aside__notes__container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* Responsive Nav */
+.headerMobile {
+  background-color: #262626;
+  border-radius: 0px 0px 10px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Ensure the header is on top of other content */
+}
+.headerMobile__logo {
+  display: flex;
+  align-items: center;
+}
+.headerMobile__logo img {
+  width: auto;
+}
+.headerMobile__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin: auto;
+}
+.headerMobile__toggle {
+  height: 40px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerMobile__toggle .hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.headerMobile__toggle .hamburger .line {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+}
+.headerMobile__toggle .hamburger.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(11px, 5px);
+}
+.headerMobile__toggle .hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+.headerMobile__toggle .hamburger.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(11px, -5px);
+}
+.headerMobile .navbar {
+  display: none;
+  justify-content: center;
+  border-top: 2px solid rgb(54, 54, 54);
+}
+.headerMobile .navbar.active {
+  display: flex;
+}
+.headerMobile .navbar__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style: none;
+  padding: 0px;
+  width: 90%;
+}
+.headerMobile .navbar__list li {
+  padding: 1rem;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Fim responsive nav*/
+/* Post*/
+.post {
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  border: 2px rgb(54, 54, 54) solid;
+  width: 80%;
+}
+.post__header__userInfo {
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+}
+.post__header__userInfo img {
+  height: 55px;
+}
+.post__header__userInfo h2 {
+  margin-left: 1.2rem;
+  color: #E5B906;
+}
+.post__header p {
+  padding: 0px;
+  margin: 0px 10px;
+  font-weight: 200;
+  font-size: 1rem;
+}
+.post__content {
+  display: block;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+.post__content p {
+  padding: 30px 20px;
+  color: black;
+  border: 3px solid #E5B906;
+  margin: 0px auto 5px auto;
+  width: 85%;
+  border-radius: 5px;
+}
+.post__content__picture {
+  display: flex;
+  justify-content: center;
+}
+.post__content__picture img {
+  height: 40px;
+  padding: 0.2rem;
+  margin: 0px 2rem;
+}
+.post__content__picture img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.post__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+}
+.post__footer__container {
+  display: flex;
+  align-items: center;
+}
+.post__footer img {
+  height: 40px;
+  padding: 10px;
+}
+.post__footer input {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  caret-color: white;
+  color: white;
+}
+.post__footer input::-moz-placeholder {
+  color: white;
+}
+.post__footer input::placeholder {
+  color: white;
+}
+.post__footer input:focus {
+  outline: none;
+}
+.post__footer__button {
+  background-color: transparent;
+  border: 0px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+.post__footer__button:hover {
+  transform: scale(1.1);
+}
+
+/* Fim Post */
+/* CreatePost */
+.createPost {
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  border: 2px rgb(54, 54, 54) solid;
+  width: 90%;
+}
+.createPost__header__userInfo {
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+}
+.createPost__header__userInfo img {
+  height: 55px;
+}
+.createPost__header__userInfo h2 {
+  margin-left: 1.2rem;
+  color: #E5B906;
+}
+.createPost__header p {
+  padding: 0px;
+  margin: 0px 10px;
+  font-weight: 200;
+  font-size: 1.15rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.createPost__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+.createPost__content textarea {
+  padding: 10px 20px;
+  color: black;
+  border: 3px solid #E5B906;
+  margin: 0px auto 5px auto;
+  width: 80%;
+  border-radius: 5px;
+  font-size: 1.15rem;
+  word-wrap: break-word;
+  resize: none;
+}
+.createPost__content textarea:focus {
+  outline: none;
+}
+.createPost__content textarea::-moz-placeholder {
+  font-size: 1.15rem;
+}
+.createPost__content textarea::placeholder {
+  font-size: 1.15rem;
+}
+.createPost__content__picture {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: start;
+}
+.createPost__content__picture img {
+  height: 40px;
+  padding: 0.2rem;
+  margin: 0.5rem 0rem 0rem 0rem;
+}
+.createPost__content__picture img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.createPost__footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 95%;
+}
+.createPost__footer__button {
+  height: 3rem;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: 0px;
+  cursor: pointer;
+}
+.createPost__footer__button:hover {
+  transform: scale(1.1);
+}
+
+/* Fim CreatePost */
+/* Profile*/
+.profile {
+  border-left: 2px solid rgb(54, 54, 54);
+}
+.profile__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+.profile__info img {
+  height: 10rem;
+}
+.profile__info button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.profile__info button img {
+  height: 2rem;
+  margin-left: 2.5rem;
+}
+.profile__info button img:hover {
+  transform: scale(1.1);
+}
+.profile__info__list {
+  font-size: 1rem;
+  list-style: none;
+  padding: 0px;
+  margin-left: 1rem;
+}
+.profile__info__list li h1 {
+  margin: 0px;
+}
+.profile__info__list li:nth-child(1) {
+  font-size: 1.55rem;
+}
+.profile__info__list li:nth-child(2) {
+  font-size: 1.3rem;
+}
+.profile__info__list li:nth-child(3) {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-style: italic;
+}
+.profile__nav {
+  display: flex;
+  justify-content: center;
+}
+.profile__nav__links {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+  margin: 2rem 0rem;
+  border-top: 2px solid rgb(54, 54, 54);
+  list-style: none;
+}
+.profile__nav__links li {
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.3rem;
+}
+.profile__nav__links li:hover {
+  cursor: pointer;
+}
+
+/* Fim profile*/
+/* Profile POSTS*/
+.posts__img__container .post {
+  width: 50%;
+  font-size: 0.7rem;
+}
+.posts__img__container .post__header img {
+  height: 2.5rem;
+}
+.posts__img__container .post__header p {
+  font-size: 0.8rem;
+}
+.posts__img__container .post__content {
+  font-size: 1rem;
+}
+.posts__img__container .post__content img {
+  height: 2rem;
+}
+.posts__img__container .post__footer button {
+  font-size: 1rem;
+}
+
+/* FIM Profile POSTS*/
+/* Profile Followers*/
+.followers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 50%;
+  margin: auto;
+}
+.followers__follower {
+  text-align: center;
+}
+.followers__follower img {
+  height: 5rem;
+}
+
+/* FIM Profile followes*/
+/* Notes*/
+.notes {
+  border-left: 2px solid rgb(54, 54, 54);
+}
+.notes__noteCreator {
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+}
+.notes__noteCreator__container {
+  width: 50%;
+}
+.notes__noteCreator__buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.notes__noteCreator__buttons .buttons {
+  border: 3px solid #E5B906;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  font-weight: 700;
+}
+.notes__noteCreator__buttons .buttons:hover {
+  transform: scale(1.1);
+}
+.notes__noteCreator__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.notes__noteCreator__form h2 {
+  text-align: center;
+  color: #E5B906;
+}
+.notes__noteCreator__form div {
+  width: 80%;
+}
+.notes__noteCreator__form textarea {
+  padding: 10px 20px;
+  color: black;
+  border: 3px solid #E5B906;
+  width: 80%;
+  margin: 0rem auto 1rem auto;
+  border-radius: 5px;
+  font-size: 1.15rem;
+  word-wrap: break-word;
+  resize: none;
+}
+.notes__noteCreator__form textarea:focus {
+  outline: none;
+}
+.notes__noteCreator__form textarea::-moz-placeholder {
+  font-size: 1.15rem;
+}
+.notes__noteCreator__form textarea::placeholder {
+  font-size: 1.15rem;
+}
+.notes__noteCreator__myNote {
+  width: 60%;
+}
+.notes__divider {
+  background-color: rgb(54, 54, 54);
+  width: 90%;
+  margin: auto;
+  border: none;
+  height: 2px;
+}
+
+.notes__noteContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  margin: auto;
+  width: 85%;
+}
+
+.aside__note {
+  background-color: #1a1a1a;
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  margin-top: 1.5rem;
+}
+.aside__note__header {
+  cursor: pointer;
+}
+.aside__note__header__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aside__note__header__container img {
+  height: 2.5rem;
+  margin-right: 1rem;
+}
+.aside__note__header__container h3 {
+  color: #E5B906;
+}
+.aside__note__main {
+  text-align: center;
+}
+.aside__note__main__text {
+  margin: 0px;
+}
+
+/* Fim notes */
+/* Search */
+.search {
+  display: grid;
+  grid-template-columns: 1fr 0fr 1fr;
+  border-left: 2px solid rgb(54, 54, 54);
+}
+.search hr {
+  background-color: rgb(54, 54, 54);
+  border: none;
+  width: 1px;
+}
+.search__bar {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+  padding: 2rem;
+}
+.search__bar__input {
+  width: 80%;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.search__bar__input:focus {
+  outline: none;
+}
+.search__bar__button {
+  margin-left: 1rem;
+}
+.search .profileSearch {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search .profileSearch__container {
+  display: flex;
+  align-items: center;
+}
+.search .profileSearch__title {
+  color: #E5B906;
+  margin: 0rem 1rem 0rem 0rem;
+}
+.search .profileSearch__img {
+  height: 2.5rem;
+  margin: auto;
+}
+.search .profileSearch__followers {
+  margin: 0rem 0rem 0rem 0rem;
+}
+
+@media screen and (max-width: 600px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .home {
+    display: block;
+    border: none;
+  }
+  /* Profile*/
+  .profile {
+    /* Profile Post */
+    /* Profile follow*/
+  }
+  .profile__info img {
+    height: 7rem;
+  }
+  .profile__nav__links {
+    padding: 0px;
+    width: 60%;
+  }
+  .profile .post {
+    width: 90%;
+  }
+  .profile .followers {
+    width: 60%;
+    row-gap: 1rem;
+  }
+  .profile .followers__follower img {
+    height: 3rem;
+  }
+  .profile .followers__follower p {
+    font-size: 1rem;
+  }
+  /* Fim profile*/
+  /*Notes*/
+  .notes__noteCreator {
+    flex-direction: column;
+  }
+  .notes__noteCreator__container {
+    width: 80%;
+  }
+  .notes__noteCreator__myNote {
+    width: 80%;
+  }
+  .notes__divider {
+    background-color: rgb(54, 54, 54);
+    width: 90%;
+    margin: auto;
+    border: none;
+    height: 2px;
+  }
+  .notes__noteContainer {
+    grid-template-columns: 1fr;
+  }
+  /* Fim Notes */
+  /* Search */
+}/*# sourceMappingURL=App.css.map */
