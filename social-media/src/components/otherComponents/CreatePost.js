@@ -1,10 +1,11 @@
-export function CreatePost(){
+export function CreatePost(props){
+    const userInfo = props.userInfo
     return(
         <section className="createPost">
             <span className="createPost__header">
                 <div className="createPost__header__userInfo">
                     <img src="/imgs/profile-picture.png"/>
-                    <h2>NomeUtilizador</h2>
+                    <h2>{userInfo.userName}</h2>
                 </div>
             </span>
             <span className="createPost__content">

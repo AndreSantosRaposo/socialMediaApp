@@ -9,19 +9,25 @@ import { Search } from './components/Search';
 import { Auth } from './firebase/auth'
 import {Route, Outlet, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom'
 import { Layout } from './components/Layout';
+import { Settings } from './components/Settings';
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Layout />}>
-    <Route index element={<Home />} />
-    <Route path="login" element={< Auth />} />
-    <Route path="profile" element={<Profile />}>
-      <Route index element={<Posts/>}/>
-      <Route path='followers' element={<Follow/>}/>
-      <Route path='following' element={<Follow/>}/>
+  <>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="profile" element={<Profile />}>
+        <Route index element={<Posts/>}/>
+        <Route path='followers' element={<Follow/>}/>
+        <Route path='following' element={<Follow/>}/>
+      </Route>
+      <Route path="notes" element={<Notes/>} />
+      <Route path="search" element={<Search/>} />
+      <Route path="settings" element={<Settings/>} />
+      <Route path="login" element={< Auth />} />
     </Route>
-    <Route path="notes" element={<Notes/>} />
-    <Route path="search" element={<Search/>} />
-  </Route>
+    
+  </>
+  
 ))
 
 function App() {
